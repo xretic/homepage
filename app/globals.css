@@ -7,6 +7,7 @@
   --text-color: #ffffff;
   --hl-color: #adadff;
   --hl-rgb: 117, 131, 255;
+  --gradient-color: #232c4d;
 
   --stars-bg: #1b1f3b;
   --stars-glow-1: rgba(120, 150, 248, 0.12);
@@ -20,6 +21,8 @@
   --text-color: #111827;
   --hl-color: #8585ff;
   --hl-rgb: 255, 255, 255;
+  --gradient-color: #fff;
+
   --stars-bg: #ffffff;
   --stars-glow-1: rgba(0, 0, 0, 0.03);
   --stars-glow-2: rgba(0, 0, 0, 0.02);

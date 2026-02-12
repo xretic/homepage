@@ -10,32 +10,18 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-
-const buttonSx = {
-  position: "absolute",
-  color: "var(--text-color)",
-  top: 20,
-  right: 20,
-  width: 40,
-  height: 40,
-  "&:hover": { backgroundColor: "rgba(0,0,0,0.1)" },
-} as const;
-
-const iconSx = {
-  position: "absolute",
-  transition: "all 220ms ease",
-  fontSize: 26,
-} as const;
+import { ClientPortal } from "@/providers/ClientPortal";
 
 type Item = { label: string; href: string };
 
 export function HoverMenu() {
   const items: Item[] = useMemo(
     () => [
-      { label: "General", href: "#general" },
+      { label: "Info", href: "#info" },
       { label: "About", href: "#about" },
+      { label: "Skills", href: "#skills" },
       { label: "Projects", href: "#projects" },
-      { label: "Stack", href: "#stack" },
+      { label: "Reviews", href: "#reviews" },
     ],
     [],
   );
@@ -56,34 +42,37 @@ export function HoverMenu() {
   };
 
   return (
-    <>
+    <ClientPortal>
       <IconButton
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={open ? handleClose : handleOpen}
         sx={{
-          ...buttonSx,
-          position: "absolute",
+          position: "fixed",
           top: 20,
           right: 20,
+          width: 40,
+          height: 40,
+          zIndex: 2147483647,
           color: "var(--text-color)",
-          "&:hover": {
-            backgroundColor: "rgba(0,0,0,0.1)",
-          },
+          "&:hover": { backgroundColor: "rgba(0,0,0,0.1)" },
         }}
       >
         <MenuIcon
           sx={{
-            ...iconSx,
+            position: "absolute",
+            transition: "all 220ms ease",
+            fontSize: 26,
             opacity: open ? 0 : 1,
             transform: open
               ? "rotate(-90deg) scale(0.9)"
               : "rotate(0) scale(1)",
           }}
         />
-
         <CloseIcon
           sx={{
-            ...iconSx,
+            position: "absolute",
+            transition: "all 220ms ease",
+            fontSize: 26,
             opacity: open ? 1 : 0,
             transform: open ? "rotate(0) scale(1)" : "rotate(90deg) scale(0.9)",
           }}
@@ -96,6 +85,7 @@ export function HoverMenu() {
         onClose={handleClose}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
+        disablePortal={false}
         slotProps={{
           paper: {
             sx: {
@@ -107,6 +97,7 @@ export function HoverMenu() {
               backdropFilter: "blur(10px)",
               color: "white",
               overflow: "hidden",
+              zIndex: 2147483647,
             },
           },
         }}
@@ -126,6 +117,6 @@ export function HoverMenu() {
           ))}
         </MenuList>
       </Popover>
-    </>
+    </ClientPortal>
   );
 }

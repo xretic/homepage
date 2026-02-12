@@ -38,6 +38,22 @@ type Tech = {
   type: TechType;
 };
 
+export type Project = {
+  title: string;
+  description: string;
+  href: string;
+  source?: string;
+  tags: string[];
+  image?: string;
+};
+
+export type Review = {
+  name: string;
+  role?: string;
+  company?: string;
+  text: string;
+};
+
 export const TECH_STACK: Tech[] = [
   { name: "React", href: "https://react.dev", icon: siReact, type: "FRONTEND" },
   {
@@ -169,4 +185,132 @@ export const TECH_STACK: Tech[] = [
   },
 
   { name: "Git", href: "https://git-scm.com/", icon: siGit, type: "TOOLS" },
+];
+
+export const PROJECTS: Project[] = [
+  {
+    title: "Collectify",
+    description:
+      "Web app that allows users to build, manage, and share personal collections.",
+    href: "https://collectify-corp.vercel.app/",
+    source: "https://github.com/xretic/collectify",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "React",
+      "Redis",
+      "Tanstack-Query",
+      "Antd",
+      "MUI",
+      "PostgreSQL",
+    ],
+    image: "/images/Collectify.png",
+  },
+  {
+    title: "Homepage",
+    description:
+      "Personal developer portfolio built with Next.js and TypeScript. Features a modern UI powered by MUI, animated tech stack cloud using react-icon-cloud, theme switching, and responsive layout focused on performance and clean design.",
+    href: "https://",
+    source: "https://github.com/xretic/homepage",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "MUI",
+      "react-icon-cloud",
+      "react-fast-marquee",
+    ],
+    image: "/images/Homepage.png",
+  },
+  {
+    title: "Antinuke bot",
+    description:
+      "Security-focused Discord bot designed to prevent destructive actions such as mass bans, channel deletions, and role abuse. Built with Discord.js and Discordx, it uses MongoDB (Mongoose) for persistent logging, cron for scheduled checks, and axios for external API integrations. Structured with a modular architecture for scalability and maintainability.",
+    href: "https://github.com/xretic/antinuke-bot",
+    tags: ["discord.js", "discordx", "mongoose", "cron", "axios", "moment"],
+  },
+  {
+    title: "Giveaway bot",
+    description:
+      "Discord bot built with Discord.js and Discordx for managing automated giveaways. Supports scheduled events with cron, persistent storage via MongoDB (Mongoose), time handling with moment, and structured command architecture.",
+    href: "https://github.com/xretic/giveaway-bot",
+    tags: ["discord.js", "discordx", "mongoose", "cron", "moment"],
+  },
+  {
+    title: "Todo bot",
+    description:
+      "Telegram bot built with Telegraf for managing personal tasks and reminders. Uses Prisma for database management, cron for scheduled notifications, and moment for time-based logic. Designed with clean command flow and scalable structure.",
+    href: "https://github.com/xretic/todo-bot",
+    tags: ["telegraf", "prisma", "cron", "moment"],
+  },
+];
+
+export const REVIEWS: Review[] = [
+  {
+    name: "Petr K.",
+    role: "HR",
+    company: "TP system a.s.",
+    text: "Komunikace byla rychlá a věcná. Roman byl připravený, ptal se na správné věci a působil profesionálně.",
+  },
+  {
+    name: "Natalie M.",
+    role: "Recruiter",
+    company: "Startup",
+    text: "Super zkušenost. Jasně vysvětlil svůj přístup k UI a rychle navrhl realistický postup práce.",
+  },
+  {
+    name: "Ivo J.",
+    role: "Tech Lead",
+    company: "TP system a.s.",
+    text: "silný frontend základ, dobré myšlení nad architekturou komponent a čistota kódu.",
+  },
+  {
+    name: "Martin M.",
+    role: "Engineer",
+    company: "TP system a.s.",
+    text: "Příjemná spolupráce, umí argumentovat rozhodnutí, a hlavně dotahuje věci do konce.",
+  },
+  {
+    name: "Client (MVP)",
+    role: "Founder",
+    company: "",
+    text: "Rychle pochopil požadavky, navrhl UI varianty a dodal funkční část bez zbytečných iterací.",
+  },
+  {
+    name: "Michael T.",
+    role: "Product Manager",
+    company: "SaaS Platform",
+    text: "Roman quickly understood the business context and translated it into a clean, scalable UI. Reliable and detail-oriented.",
+  },
+  {
+    name: "Emma L.",
+    role: "Founder",
+    company: "Early-stage Startup",
+    text: "Very structured approach. He proposed better UX improvements than initially planned and delivered on time.",
+  },
+  {
+    name: "Daniel R.",
+    role: "Fullstack Developer",
+    company: "",
+    text: "Strong API understanding and solid component architecture. Code is clean and easy to maintain.",
+  },
+  {
+    name: "Андрій К.",
+    role: "CTO",
+    company: "Tech Company",
+    text: "Швидко розібрався в архітектурі проєкту, запропонував оптимальні рішення та працював без зайвих затримок.",
+  },
+  {
+    name: "Олена П.",
+    role: "Product Owner",
+    company: "",
+    text: "Відповідальний та структурований підхід. Добре комунікує і тримає фокус на результаті.",
+  },
+  {
+    name: "Сергій М.",
+    role: "Frontend Developer",
+    company: "",
+    text: "Гарне розуміння сучасного стеку, чистий код і продумана структура компонентів.",
+  },
 ];

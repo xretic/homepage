@@ -3,7 +3,7 @@ import styles from "./sections.module.css";
 
 export function About() {
   return (
-    <section id="section" className={styles.section}>
+    <section id="about" className={styles.section}>
       <div className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>
           <BubbleChartIcon sx={{ width: 40, height: 40, marginRight: 1 }} />

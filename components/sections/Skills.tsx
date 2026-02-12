@@ -12,8 +12,6 @@ const CATEGORIES = [
   { key: "TOOLS", title: "TOOLS", color: "#00bcd4" },
 ] as const;
 
-type CategoryKey = (typeof CATEGORIES)[number]["key"];
-
 export function Skills() {
   const grouped = TECH_STACK.reduce<Record<string, typeof TECH_STACK>>(
     (acc, item) => {
