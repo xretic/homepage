@@ -211,7 +211,7 @@ export const PROJECTS: Project[] = [
     title: "Homepage",
     description:
       "Personal developer portfolio built with Next.js and TypeScript. Features a modern UI powered by MUI, animated tech stack cloud using react-icon-cloud, theme switching, and responsive layout focused on performance and clean design.",
-    href: "https://",
+    href: "https://xretic.vercel.app/",
     source: "https://github.com/xretic/homepage",
     tags: [
       "Next.js",
