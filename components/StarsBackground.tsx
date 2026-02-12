@@ -43,6 +43,8 @@ export function StarsBackground({
   const starsRef = useRef<Star[]>([]);
   const dprRef = useRef(1);
 
+  const sizeRef = useRef({ w: 0, h: 0 });
+
   const themeRef = useRef({
     bg: "#1b1f3b",
     glow1: "rgba(120, 150, 248, 0.12)",
@@ -69,7 +71,6 @@ export function StarsBackground({
       attributes: true,
       attributeFilter: ["data-theme", "class"],
     });
-
     return () => mo.disconnect();
   }, []);
 
@@ -84,20 +85,15 @@ export function StarsBackground({
       "(prefers-reduced-motion: reduce)",
     )?.matches;
 
-    const resize = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
+    const getViewportSize = () => {
+      const vv = window.visualViewport;
+      const w = Math.floor((vv?.width ?? window.innerWidth) || 0);
+      const h = Math.floor((vv?.height ?? window.innerHeight) || 0);
+      return { w, h };
+    };
 
-      const rect = parent.getBoundingClientRect();
-      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-      dprRef.current = dpr;
-
-      canvas.width = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
-
-      const area = canvas.width * canvas.height;
+    const rebuildStars = (wPx: number, hPx: number, dpr: number) => {
+      const area = wPx * hPx;
       const count = Math.max(70, Math.floor(area * density));
 
       const stars: Star[] = [];
@@ -105,8 +101,8 @@ export function StarsBackground({
         const r = rand(0.6, 2.2) * dpr;
         const base = rand(0.18, 0.75);
         stars.push({
-          x: rand(0, canvas.width),
-          y: rand(0, canvas.height),
+          x: rand(0, wPx),
+          y: rand(0, hPx),
           r,
           vx: rand(-0.25, 0.25) * dpr,
           vy: rand(0.15, 0.55) * dpr,
@@ -118,11 +114,39 @@ export function StarsBackground({
       starsRef.current = stars;
     };
 
+    const resize = (force = false) => {
+      const { w, h } = getViewportSize();
+      if (!w || !h) return;
+
+      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      dprRef.current = dpr;
+
+      const nextW = Math.floor(w * dpr);
+      const nextH = Math.floor(h * dpr);
+
+      const prev = sizeRef.current;
+
+      const heightDelta = Math.abs(prev.h - nextH);
+      const widthDelta = Math.abs(prev.w - nextW);
+
+      if (!force) {
+        if (widthDelta === 0 && heightDelta < 80 * dpr) return;
+      }
+
+      sizeRef.current = { w: nextW, h: nextH };
+
+      canvas.width = nextW;
+      canvas.height = nextH;
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+
+      rebuildStars(nextW, nextH, dpr);
+    };
+
     const draw = (t: number) => {
       const w = canvas.width;
       const h = canvas.height;
       const dpr = dprRef.current;
-
       const theme = themeRef.current;
 
       ctx.clearRect(0, 0, w, h);
@@ -181,14 +205,25 @@ export function StarsBackground({
       rafRef.current = requestAnimationFrame(draw);
     };
 
-    resize();
-    const ro = new ResizeObserver(resize);
-    if (canvas.parentElement) ro.observe(canvas.parentElement);
+    resize(true);
+
+    let resizeRaf: number | null = null;
+    const onResize = () => {
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(() => resize(false));
+    };
+
+    window.addEventListener("resize", onResize, { passive: true });
+    window.visualViewport?.addEventListener("resize", onResize, {
+      passive: true,
+    });
 
     rafRef.current = requestAnimationFrame(draw);
 
     return () => {
-      ro.disconnect();
+      window.removeEventListener("resize", onResize);
+      window.visualViewport?.removeEventListener("resize", onResize);
+      if (resizeRaf) cancelAnimationFrame(resizeRaf);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [density, speed]);
