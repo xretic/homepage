@@ -9,7 +9,7 @@ performance and clean design.
 
 ## 🚀 Live Demo
 
-🔗 https://
+🔗 [https://xretic.vercel.app/](https://xretic.vercel.app/)
 
 ---
 
@@ -33,16 +33,6 @@ performance and clean design.
 - 🧊 Glass UI elements
 - 💨 Smooth transitions & hover animations
 - 📬 Contact integration (mail, GitHub, LinkedIn)
-
----
-
-## 📂 Project Structure
-
-. ├── app/ │ ├── page.tsx │ └── layout.tsx ├── components/ │ ├──
-sections/ │ ├── TechCloud.tsx │ ├── HoverMenu.tsx │ └── ... ├── lib/ │
-└── useTheme.ts ├── public/ │ └── images/ └── styles/
-
----
 
 ## 🧑‍💻 Getting Started
 
@@ -79,16 +69,3 @@ NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/yourusername
 npm run build npm start
 
 ---
-
-## 🎯 Goals of This Project
-
-- Showcase fullstack development skills
-- Demonstrate clean UI/UX design principles
-- Maintain high performance & minimal bloat
-- Serve as a personal branding platform
-
----
-
-## 📄 License
-
-MIT License.
