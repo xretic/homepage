@@ -1,0 +1,144 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pfInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.countryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.name {
+  margin: 4px 0 0;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.wave {
+  display: inline-block;
+  transform: translateY(1px);
+}
+
+.title {
+  line-height: 0.95;
+}
+
+.h1 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: clamp(44px, 5.2vw, 80px);
+  color: var(--hl-color);
+  text-transform: uppercase;
+}
+
+.hl {
+  color: var(--text-color);
+}
+
+.glass {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 14px;
+
+  background: rgba(20, 30, 70, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 900px) {
+  .sectionSection {
+    padding: 90px 18px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .sectionText {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .left {
+    order: -1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .right {
+    order: 0;
+    align-items: center;
+    text-align: center;
+  }
+}

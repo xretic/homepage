@@ -1,0 +1,92 @@
+.skillsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.skillCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skillTitle {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.skillItem {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.9;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  cursor: default;
+}
+
+.skillItem:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.section {
+  padding: 50px 24px;
+  position: relative;
+  z-index: 1;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.sectionContainer {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.sectionText {
+  max-width: 860px;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-color);
+}
+
+.sectionText p {
+  margin: 0 0 16px;
+}
+
+.sectionLink {
+  color: #2f6bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sectionLink:hover {
+  text-decoration: underline;
+}
+
+.sectionEm {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.sectionCtaLine {
+  margin-top: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+}
