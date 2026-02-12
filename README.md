@@ -1,4 +1,4 @@
-# homepage
+# Homepage
 
 Personal developer portfolio built with Next.js and TypeScript.\
 Features a modern UI powered by MUI, animated tech stack cloud using
