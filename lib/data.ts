@@ -250,7 +250,7 @@ export const REVIEWS: Review[] = [
   {
     name: "Petr K.",
     role: "HR",
-    company: "TP system a.s.",
+    company: "TP a.s.",
     text: "Komunikace byla rychlá a věcná. Roman byl připravený, ptal se na správné věci a působil profesionálně.",
   },
   {
@@ -262,17 +262,17 @@ export const REVIEWS: Review[] = [
   {
     name: "Ivo J.",
     role: "Tech Lead",
-    company: "TP system a.s.",
+    company: "TP a.s.",
     text: "silný frontend základ, dobré myšlení nad architekturou komponent a čistota kódu.",
   },
   {
     name: "Martin M.",
     role: "Engineer",
-    company: "TP system a.s.",
+    company: "TP a.s.",
     text: "Příjemná spolupráce, umí argumentovat rozhodnutí, a hlavně dotahuje věci do konce.",
   },
   {
-    name: "Client (MVP)",
+    name: "Jan Novák",
     role: "Founder",
     company: "",
     text: "Rychle pochopil požadavky, navrhl UI varianty a dodal funkční část bez zbytečných iterací.",

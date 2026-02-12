@@ -6,7 +6,7 @@ export function About() {
     <section id="about" className={styles.section}>
       <div className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>
-          <BubbleChartIcon sx={{ width: 40, height: 40, marginRight: 1 }} />
+          <BubbleChartIcon sx={{ width: 40, height: 40, marginRight: 0.3 }} />
           About
         </h2>
 

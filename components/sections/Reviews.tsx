@@ -4,6 +4,7 @@ import Marquee from "react-fast-marquee";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import styles from "./sections.module.css";
 import { Review, REVIEWS } from "@/lib/data";
+import ReviewsIcon from "@mui/icons-material/Reviews";
 
 function ReviewCard({ r }: { r: Review }) {
   return (
@@ -29,7 +30,10 @@ export function Reviews() {
   return (
     <section id="reviews" className={styles.section}>
       <div className={styles.sectionContainer}>
-        <h2 className={styles.sectionTitle}>Reviews</h2>
+        <h2 className={styles.sectionTitle}>
+          <ReviewsIcon sx={{ width: 32, height: 32, marginRight: 1 }} />
+          Reviews
+        </h2>
 
         <div className={styles.reviewsWrap}>
           <Marquee pauseOnHover pauseOnClick speed={80}>

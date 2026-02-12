@@ -17,8 +17,8 @@ import TerrainIcon from "@mui/icons-material/Terrain";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Reviews } from "@/components/sections/Reviews";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { useEffect, useState } from "react";
+import { Contact } from "@/components/sections/Contact";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export default function Home() {
   const { theme, changeTheme } = useTheme();
@@ -37,19 +37,6 @@ export default function Home() {
     position: "absolute",
     transition: "opacity 0.3s ease, transform 0.3s ease",
     ...iconSx,
-  };
-
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShowScrollTop(window.scrollY > 500);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleThemeChange = () => {
@@ -162,31 +149,8 @@ export default function Home() {
       <Skills />
       <Projects />
       <Reviews />
-
-      <IconButton
-        onClick={scrollToTop}
-        className={`${styles.scrollTopBtn} ${
-          showScrollTop ? styles.scrollTopBtnVisible : ""
-        }`}
-        aria-label="Scroll to top"
-        sx={{
-          ...buttonSx,
-          position: "fixed",
-          top: 20,
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 50,
-          width: 44,
-          height: 44,
-          backgroundColor: "rgba(var(--hl-rgb), 0.08)",
-          backdropFilter: "blur(10px)",
-          "&:hover": {
-            backgroundColor: "rgba(var(--hl-rgb), 0.14)",
-          },
-        }}
-      >
-        <KeyboardArrowUpIcon sx={iconSx} />
-      </IconButton>
+      <Contact />
+      <ScrollToTop />
     </main>
   );
 }

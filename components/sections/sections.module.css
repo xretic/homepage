@@ -58,15 +58,21 @@
   letter-spacing: -0.02em;
 }
 
-.sectionText {
+.sectionText,
+.sectionTextLast {
   max-width: 860px;
   font-size: 16px;
   line-height: 1.85;
   color: var(--text-color);
 }
 
-.sectionText p {
+.sectionText,
+.sectionTextLast p {
   margin: 0 0 16px;
+}
+
+.sectionTextLast {
+  margin-bottom: 100px;
 }
 
 .sectionLink {

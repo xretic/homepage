@@ -22,6 +22,7 @@ export function HoverMenu() {
       { label: "Skills", href: "#skills" },
       { label: "Projects", href: "#projects" },
       { label: "Reviews", href: "#reviews" },
+      { label: "Contact", href: "#contact" },
     ],
     [],
   );

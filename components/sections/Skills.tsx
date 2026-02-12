@@ -1,6 +1,6 @@
 import styles from "./sections.module.css";
 import HandymanIcon from "@mui/icons-material/Handyman";
-import GridViewIcon from "@mui/icons-material/GridView";
+import CodeIcon from "@mui/icons-material/Code";
 import { TECH_STACK } from "@/lib/data";
 import Link from "next/link";
 
@@ -25,7 +25,7 @@ export function Skills() {
     <section id="skills" className={styles.section}>
       <div className={styles.sectionContainer}>
         <h2 className={styles.sectionTitle}>
-          <HandymanIcon sx={{ width: 32, height: 32, mr: 1 }} />
+          <HandymanIcon sx={{ width: 32, height: 32, marginRight: 1 }} />
           Skills
         </h2>
 
@@ -59,7 +59,7 @@ function SkillCategory({
   return (
     <div className={styles.skillCategory}>
       <h3 className={styles.skillTitle} style={{ color }}>
-        <GridViewIcon /> {title}
+        <CodeIcon /> {title}
       </h3>
       <div className={styles.skillItems}>{children}</div>
     </div>
