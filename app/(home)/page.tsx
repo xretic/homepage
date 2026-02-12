@@ -1,7 +1,6 @@
 "use client";
 
 import { StarsBackground } from "@/components/StarsBackground";
-import TechCloud from "@/components/TechCloud";
 import styles from "./home.module.css";
 import { useTheme } from "@/lib/useTheme";
 import { IconButton, SxProps, Theme } from "@mui/material";
@@ -19,6 +18,11 @@ import { Projects } from "@/components/sections/Projects";
 import { Reviews } from "@/components/sections/Reviews";
 import { Contact } from "@/components/sections/Contact";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import dynamic from "next/dynamic";
+
+const TechCloud = dynamic(() => import("@/components/TechCloud"), {
+  ssr: false,
+});
 
 export default function Home() {
   const { theme, changeTheme } = useTheme();
@@ -61,8 +65,8 @@ export default function Home() {
               <Image
                 src={"/images/Avatar.jpg"}
                 alt="avatar"
-                width={44}
-                height={44}
+                width={80}
+                height={80}
                 className={styles.avatar}
               />
               <div>
