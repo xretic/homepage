@@ -58,9 +58,12 @@ http://localhost:3000
 
 Create a `.env.local` file:
 
-NEXT_PUBLIC_EMAIL=your@email.com\n
-NEXT_PUBLIC_GITHUB_URL=https://github.com/yourusername\n
+```env
+NEXT_PUBLIC_EMAIL=your@email.com
+NEXT_PUBLIC_GITHUB_URL=https://github.com/yourusername
 NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/yourusername
+```
+
 
 ---
 
