@@ -34,12 +34,6 @@ export function About() {
             React Query, Prisma and Redis caching.
           </p>
 
-          <p>
-            Currently, I’m open to a{" "}
-            <span className={styles.sectionEm}>full-stack web developer</span>{" "}
-            role where I can grow and build useful software.
-          </p>
-
           <p className={styles.sectionCtaLine}>
             Let’s build something great! ✨
           </p>
